@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <body>[JS-A05] Você foi convidado(a) a desenvolver um aplicativo web para ajudar a gerenciar as tarefas domésticas de uma família agitada. O objetivo é criar um "Gerenciador de Tarefas Domésticas" que permita que todos os membros da família adicionem, removam e atualizem suas tarefas diárias, garantindo que tudo seja feito de forma organizada. -->
+
+<script>
+
+// criei uma array para ser adicionado todas as tarefas
+let lista = []
+// criei um contador para ser representar o número de atividades que serão desenvolvidas 
+let contador = 1
+
+// criei um menu de 
+while (true){
+    let menu = Number(prompt("Digite 1 para adicionar atividades, 2 para removerem atividades , 3 para atualizar tarefas diárias e 4 para listar tarefas e 5 para sair do programa : "))
+
+    if (menu ==1){
+        adicionarAtividade()
+    }
+    else if (menu ==2){
+        removerAtividade()
+    }
+    else if( menu ==3){
+        atualizarTarefas()
+    }
+    else if (menu ==4){
+        listarTarefas()
+    }
+    else if (menu ==5){
+        alert("você acaba de sair do programa")
+        break
+    }
+    else{
+        alert("valor inválido")
+    }
+}
+
+function adicionarAtividade(){
+    let atividade = prompt("Digite a atividade que deseja adicionar: ")
+    lista.push(`${contador}: ${atividade}`)
+    contador ++
+}
+
+function removerAtividade(){
+    let indice = Number(prompt("Digite numero da atividade que deseja remover: ")) -1 
+    if (indice>=0 && indice<lista.length){
+        lista.splice(indice,1)
+        alert("atividade removida com sucesso")
+        atualizarContador()
+    }
+    else{
+        alert("indice inválido")
+    }
+}
+
+function atualizarTarefas(){
+    let atualizar = Number(prompt("Digite o numero da atividade que deseja atualizar: ")) 
+    if (atualizar>=0 && atualizar<lista.length){
+        let novatarefa = prompt("Digite a nova tarefa: ")
+        lista[atualizar] = `${atualizar +1}: ${novatarefa}`
+        alert("tarefa atualizada com sucesso")
+    }
+    else{
+        alert("indice inválido: ")
+    }
+}
+
+function listarTarefas(){
+    if (lista.length==0){
+        alert("nenhum item encontrado")
+    }
+    else{
+        let ltarefas = lista.join("\n")
+        alert (`As tarefas são: ${ltarefas}`)
+    }
+}
+    
+function atualizarContador(){
+    contador = 1
+    for (let i = 0; i<lista.length;i++){
+        lista[i] = `${contador}: ${lista}`
+        contador ++
+    }
+}
+
+
+
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um codigo que pede 5 strings ao usuario, adicione uma lista e ao final mostre um console a quantidade de strings que começam com a letra A.  -->
+
+    <script>
+        let lista = []
+
+        for (let i = 0; i<5;i++){
+            let string = prompt("Digite uma palavra: ").toLowerCase()
+            lista.push(string)}
+
+        let contador = 0 
+            for (let letra of lista){
+                if (letra[0] == "a"){
+                    contador ++
+                }
+            }
+     console.log(contador)
+
+
+
+    </script>
+</body>
+</html>

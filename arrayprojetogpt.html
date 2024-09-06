@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let lista = [];
+let contador = 1;
+
+while (true) {
+    let menu = Number(prompt("Digite 1 para adicionar atividades, 2 para remover atividades, 3 para atualizar tarefas diárias, 4 para listar tarefas e 5 para sair do programa: "));
+
+    if (menu === 1) {
+        adicionarAtividade();
+    } else if (menu === 2) {
+        removerAtividade();
+    } else if (menu === 3) {
+        atualizarTarefas();
+    } else if (menu === 4) {
+        listarTarefas();
+    } else if (menu === 5) {
+        alert("Você acaba de sair do programa.");
+        break;
+    } else {
+        alert("Valor inválido.");
+    }
+}
+
+function adicionarAtividade() {
+    let atividade = prompt("Digite a atividade que deseja adicionar: ");
+    lista.push(`${contador}: ${atividade}`);
+    contador++;
+}
+
+function removerAtividade() {
+    let indice = Number(prompt("Digite o número da atividade que deseja remover: ")) - 1;
+    if (indice >= 0 && indice < lista.length) {
+        lista.splice(indice, 1);
+        alert("Atividade removida com sucesso.");
+        atualizarContador();
+    } else {
+        alert("Índice inválido.");
+    }
+}
+
+function atualizarTarefas() {
+    let indice = Number(prompt("Digite o número da atividade que deseja atualizar: ")) - 1;
+    if (indice >= 0 && indice < lista.length) {
+        let novatarefa = prompt("Digite a nova tarefa: ");
+        lista[indice] = `${indice + 1}: ${novatarefa}`;
+        alert("Tarefa atualizada com sucesso.");
+    } else {
+        alert("Índice inválido.");
+    }
+}
+
+function listarTarefas() {
+    if (lista.length === 0) {
+        alert("Nenhum item encontrado.");
+    } else {
+        let ltarefas = lista.join("\n");
+        alert(`As tarefas são:\n${ltarefas}`);
+    }
+}
+
+function atualizarContador() {
+    contador = 1;
+    for (let i = 0; i < lista.length; i++) {
+        lista[i] = `${contador}: ${lista[i].split(": ")[1]}`;
+        contador++;
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Estrutura:
+Crie um array chamado animais contendo os seguintes
+elementos, Cachorro, Gato, Papagaio. Em seguida:
+ -->
+
+<script>
+    let animais = ["cachorro", "gato","papagaio"]
+    // 1 - Adicione o elemento Tartaruga ao final do array
+    animais.push("tartaruga")
+    // 2 - Remova o primeiro elemento e adicione o elemento Coelho no início.
+    animais.splice(0,1,"coelho")
+    // 3 - Depois, substitua o elemento na posição 2 por Hamster.
+    animais.splice(2,1,"hamster")
+    // 4 - Exiba o comprimento atual do array.
+    console.log(animais.length)
+    // 5 - Acesse e exiba no console o elemento na posição 1.
+    console.log(animais[1])
+    // 6 - Finalmente, exiba o array final no console.
+    console.log(animais)
+
+</script>
+</body>
+</html>
